@@ -1,20 +1,22 @@
 package com.haryop.android.animationproject
 
 import android.animation.*
+import android.graphics.Path
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
-import com.haryop.android.animationproject.databinding.ActivityMainBinding
+import android.view.animation.PathInterpolator
+import com.haryop.android.animationproject.databinding.ActivityAnimationBinding
 
-class MainActivity : AppCompatActivity() {
+class AnimationActivity : AppCompatActivity() {
 
-  private lateinit var viewBinding: ActivityMainBinding
+  private lateinit var viewBinding: ActivityAnimationBinding
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    viewBinding = ActivityMainBinding.inflate(layoutInflater)
+    viewBinding = ActivityAnimationBinding.inflate(layoutInflater)
     setContentView(viewBinding.root)
 
     viewBinding.llContainer.layoutTransition.apply {
@@ -89,6 +91,18 @@ class MainActivity : AppCompatActivity() {
     ObjectAnimator.ofFloat(viewBinding.llContainer, "alpha", 1f).apply {
       duration = 300
       interpolator = AccelerateDecelerateInterpolator()
+      start()
+    }
+  }
+
+  private fun moveWithCurveMotion() {
+    val path = Path().apply {
+      arcTo(0f, 0f, 1000f, 1000f, 270f, -180f, true)
+    }
+    val pathInterpolator = PathInterpolator(path)
+    ObjectAnimator.
+      ofFloat(viewBinding.bStartAnimation, View.X, View.Y, path).apply {
+      duration = 5000
       start()
     }
   }
