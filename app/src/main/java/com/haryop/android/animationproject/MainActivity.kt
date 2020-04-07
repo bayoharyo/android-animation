@@ -1,9 +1,6 @@
 package com.haryop.android.animationproject
 
-import android.animation.AnimatorSet
-import android.animation.LayoutTransition
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
+import android.animation.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,18 +22,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     viewBinding.bStartAnimation.setOnClickListener {
-      /*AnimatorSet().apply {
+      AnimatorSet().apply {
         play(showWithAnimation(viewBinding.tvHelloWorld)).before(showWithAnimation(viewBinding.tvHaveANiceDay))
         start()
-      }*/
+      }
 
-      viewBinding.tvInside1.text = "INSIDE VIEW GROUP INSIDE VIEW GROUP INSIDE VIEW GROUP"
+      /*viewBinding.tvHelloWorld.animate().alpha(1f)
+      viewBinding.tvHaveANiceDay.animate().alpha(1f)*/
+
+      // viewBinding.tvInside1.text = "INSIDE VIEW GROUP INSIDE VIEW GROUP INSIDE VIEW GROUP"
+    }
+
+    viewBinding.bEnableStartAnimation.setOnClickListener {
+      viewBinding.bStartAnimation.isEnabled = viewBinding.bStartAnimation.isEnabled.not()
     }
 
     viewBinding.tvHelloWorld.alpha = 0f
     viewBinding.tvHaveANiceDay.alpha = 0f
 
     Log.d("LOGHERE", viewBinding.tvHelloWorld.translationX.toString())
+
+    val buttonStateListAnimator = AnimatorInflater.
+      loadStateListAnimator(this, R.xml.button_state_list_animator)
+
+    viewBinding.bStartAnimation.stateListAnimator = buttonStateListAnimator
   }
 
   private fun showHelloWorldValueAnimator() {

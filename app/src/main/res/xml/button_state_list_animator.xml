@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <set
+            android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+            android:shareInterpolator="true">
+            <objectAnimator android:propertyName="scaleX"
+                android:duration="500"
+                android:valueTo="1.5"
+                android:valueType="floatType"/>
+            <objectAnimator android:propertyName="scaleY"
+                android:duration="500"
+                android:valueTo="1.5"
+                android:valueType="floatType"/>
+            <objectAnimator android:propertyName="alpha"
+                android:duration="200"
+                android:valueTo="0.5"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+    <item android:state_pressed="false">
+        <set>
+            <objectAnimator android:propertyName="scaleX"
+                android:duration="500"
+                android:valueTo="1"
+                android:valueType="floatType"/>
+            <objectAnimator android:propertyName="scaleY"
+                android:duration="500"
+                android:valueTo="1"
+                android:valueType="floatType"/>
+            <objectAnimator android:propertyName="alpha"
+                android:duration="200"
+                android:valueTo="1.0"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+    <item android:state_enabled="false">
+        <set>
+            <!--<objectAnimator android:propertyName="scaleX"
+                android:duration="500"
+                android:valueTo="1"
+                android:valueType="floatType"/>
+            <objectAnimator android:propertyName="scaleY"
+                android:duration="500"
+                android:valueTo="1"
+                android:valueType="floatType"/>-->
+            <objectAnimator android:propertyName="alpha"
+                android:duration="200"
+                android:valueTo="0.0"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+    <item android:state_enabled="true">
+        <set>
+            <!--<objectAnimator android:propertyName="scaleX"
+                android:duration="500"
+                android:valueTo="1"
+                android:valueType="floatType"/>
+            <objectAnimator android:propertyName="scaleY"
+                android:duration="500"
+                android:valueTo="1"
+                android:valueType="floatType"/>-->
+            <objectAnimator android:propertyName="alpha"
+                android:duration="200"
+                android:valueTo="1.0"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+</selector>
