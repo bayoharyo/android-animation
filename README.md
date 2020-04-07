@@ -8,7 +8,7 @@ Try using ObjectAnimator, ValueAnimator, automatic LayoutTransition, and StateLi
 
 **ValueAnimator**: It is for custom animation, need to implement AnimatorUpdateListener to get current animated value. It can be created also in form of xml with tag `<animator />` to be inflated to view.
 
-**ObjectAnimator**: If you know what view property to be animated, example: alpha, translationX, etc. It can be created also in form of xml with tag `<objectAnimator />` to be inflated to view.
+**ObjectAnimator**: If you know what view property to be animated, example: alpha, translationX, etc. It can be created also in form of xml with tag `<objectAnimator />` to be inflated to view. Common use of ObjectAnimator: hide/show view, move view, change view size.
 
 **AnimatorSet**: Use this if you want to set animation to play together, sequentially, or after a specified delay (Choreographing multiple animations).
 
