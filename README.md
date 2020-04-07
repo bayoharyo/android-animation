@@ -14,5 +14,14 @@ Try using ObjectAnimator, ValueAnimator, automatic LayoutTransition, and StateLi
 
 **ViewPropertyAnimator**: Shortcut to animate property of View.
 
+**StateListAnimator**: Contains animator (ObjectAnimator or ValueAnimator) to run on specified state of view. Example: state_pressed on Button so if we set the button a StatePressedListAnimator whenever we press/unpress the button the animatorS in StatePressedListAnimator will play.
+
+**automatic LayoutTransition**: To animate ViewGroups, just add `android:animateLayoutChanges="true"` in ViewGroup to animate it whenever you **add/remove** child views. If you want to animate ViewGroup when childView attribute is changing then you should enableTransitionType for this LayoutTransition.
+```
+viewBinding.llContainer.layoutTransition.apply {
+  enableTransitionType(LayoutTransition.CHANGING);
+}
+```
+
 ## TransitionActivity
 Try animating layout changes in one activity using Scene.
