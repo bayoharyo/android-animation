@@ -25,7 +25,8 @@ class AnimationActivity : AppCompatActivity() {
 
     viewBinding.bStartAnimation.setOnClickListener {
       AnimatorSet().apply {
-        play(showWithAnimation(viewBinding.tvHelloWorld)).before(showWithAnimation(viewBinding.tvHaveANiceDay))
+        play(showWithAnimation(viewBinding.tvHelloWorld)).before(
+            showWithAnimation(viewBinding.tvHaveANiceDay))
         start()
       }
 
@@ -39,13 +40,17 @@ class AnimationActivity : AppCompatActivity() {
       viewBinding.bStartAnimation.isEnabled = viewBinding.bStartAnimation.isEnabled.not()
     }
 
+    viewBinding.bGoToTransition.setOnClickListener {
+      startActivity(TransitionActivity.createIntent(this))
+    }
+
     viewBinding.tvHelloWorld.alpha = 0f
     viewBinding.tvHaveANiceDay.alpha = 0f
 
     Log.d("LOGHERE", viewBinding.tvHelloWorld.translationX.toString())
 
-    val buttonStateListAnimator = AnimatorInflater.
-      loadStateListAnimator(this, R.xml.button_state_list_animator)
+    val buttonStateListAnimator = AnimatorInflater.loadStateListAnimator(this,
+        R.xml.button_state_list_animator)
 
     viewBinding.bStartAnimation.stateListAnimator = buttonStateListAnimator
   }
@@ -100,8 +105,7 @@ class AnimationActivity : AppCompatActivity() {
       arcTo(0f, 0f, 1000f, 1000f, 270f, -180f, true)
     }
     val pathInterpolator = PathInterpolator(path)
-    ObjectAnimator.
-      ofFloat(viewBinding.bStartAnimation, View.X, View.Y, path).apply {
+    ObjectAnimator.ofFloat(viewBinding.bStartAnimation, View.X, View.Y, path).apply {
       duration = 5000
       start()
     }
