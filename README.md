@@ -26,5 +26,6 @@ viewBinding.llContainer.layoutTransition.apply {
 ## TransitionActivity
 Try animating layout changes in one activity using Scene.
 How it works : 
-Scene objcet will capture the view hierarchy and TransitionManager will animate changes between Scene.
-![Alt text](https://developer.android.com/images/transitions/transitions_diagram.png "From Android Documentation")
+Scene objcet will capture the view hierarchy and TransitionManager will animate changes between Scene.\
+![Alt text](https://developer.android.com/images/transitions/transitions_diagram.png "From Android Documentation")\
+`TransitionManager.go(Scene())` will use default TransitionManager, you can create your own TransitionManager.
