@@ -1,5 +1,5 @@
 # android-animation
-Playground for Android Animation
+Research & Playground for Android Animation
 
 Notes
 
